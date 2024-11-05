@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/views/home_view.dart';
 
 
@@ -20,37 +19,4 @@ class PaymentApp extends StatelessWidget {
     );
   }
 }
-Future<void> initPaymentSheet() async {
-  try {
-    // 2. initialize the payment sheet
-    await Stripe.instance.initPaymentSheet(
-      paymentSheetParameters: SetupPaymentSheetParameters(
-        // Set to true for custom flow
-        customFlow: false,
-        // Main params
-        merchantDisplayName: 'Flutter Stripe Store Demo',
-        paymentIntentClientSecret: data['paymentIntent'],
-        // Customer keys
-        customerEphemeralKeySecret: data['ephemeralKey'],
-        customerId: data['customer'],
-        // Extra options
-        applePay: const PaymentSheetApplePay(
-          merchantCountryCode: 'US',
-        ),
-        googlePay: const PaymentSheetGooglePay(
-          merchantCountryCode: 'US',
-          testEnv: true,
-        ),
-        style: ThemeMode.dark,
-      ),
-    );
-    setState(() {
-      _ready = true;
-    });
-  } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: $e')),
-    );
-    rethrow;
-  }
-}
+
