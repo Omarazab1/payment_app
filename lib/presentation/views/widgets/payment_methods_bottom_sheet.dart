@@ -1,9 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:paymentapp/views/widgets/custom_button.dart';
-import 'package:paymentapp/views/widgets/payment_methods_list_view.dart';
+import 'package:paymentapp/presentation/views/widgets/payment_methods_list_view.dart';
 
-import 'custom_button_bloc_consumer.dart';
+import 'custom_button.dart';
 
 class PaymentMethodsBottomSheet extends StatefulWidget {
   const PaymentMethodsBottomSheet({super.key});

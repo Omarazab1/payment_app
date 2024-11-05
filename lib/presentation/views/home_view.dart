@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:paymentapp/views/widgets/custom_button.dart';
-import 'package:paymentapp/views/widgets/details_text.dart';
-import 'package:paymentapp/views/widgets/payment_methods_bottom_sheet.dart';
+import 'package:paymentapp/presentation/views/widgets/custom_button.dart';
+import 'package:paymentapp/presentation/views/widgets/details_text.dart';
+import 'package:paymentapp/presentation/views/widgets/payment_methods_bottom_sheet.dart';
+
 
 class MyCartView extends StatelessWidget {
   const MyCartView({super.key});

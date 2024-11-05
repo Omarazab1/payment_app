@@ -1,8 +1,8 @@
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/data/models/payment_intent_model/payment_intent_input_model.dart';
 import 'package:paymentapp/data/models/payment_intent_model/payment_intent_model.dart';
-import '../core/keys/api_keys.dart';
-import '../core/utils/api_service.dart';
+import '../keys/api_keys.dart';
+import 'api_service.dart';
 
 class StripeService {
   final ApiService apiService = ApiService();
@@ -32,5 +32,11 @@ class StripeService {
 
   Future displayPaymentSheet() async{
     await Stripe.instance.presentPaymentSheet();
+  }
+
+  Future makePayment({required PaymentIntentInputModel paymentIntentInputModel}) async{
+    var paymentIntentModel = await createPaymentIntent(paymentIntentInputModel);
+    await initPaymentSheet(paymentIntentClientSecret: paymentIntentModel.clientSecret!);
+    await displayPaymentSheet();
   }
 }
