@@ -5,12 +5,13 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.backgroundColor,
     required this.buttonName,
-    required this.onPressed,
+    required this.onPressed, this.isLoading = false,
   });
 
   final Color backgroundColor;
   final String buttonName;
   final Function() onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8), // Rounded borders
           ),
         ),
-        child: Text(
+        child: isLoading ? const CircularProgressIndicator() : Text(
           buttonName,
           style: const TextStyle(
               fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),

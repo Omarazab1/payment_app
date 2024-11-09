@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/data/models/payment_intent_model/payment_intent_input_model.dart';
 import 'package:paymentapp/data/models/payment_intent_model/payment_intent_model.dart';
@@ -13,6 +14,7 @@ class StripeService {
         url: 'https://api.stripe.com/v1/payment_intents',
         body: paymentIntentInputModel.toJson(),
         token: ApiKeys.secretKey,
+        contentType: Headers.formUrlEncodedContentType,
     );
     var paymentIntentModel = PaymentIntentModel.fromJson( response.data );
 

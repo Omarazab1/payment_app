@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:paymentapp/presentation/views/home_view.dart';
-
-
-
-
+import 'core/keys/api_keys.dart';
 void main() {
-  runApp(const PaymentApp());
+  WidgetsFlutterBinding.ensureInitialized();
+   Stripe.publishableKey = ApiKeys.publishableKey;
+   runApp(const PaymentApp());
 }
 
 

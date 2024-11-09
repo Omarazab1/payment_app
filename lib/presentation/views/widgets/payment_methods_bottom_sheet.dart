@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:paymentapp/presentation/views/widgets/payment_methods_list_view.dart';
-
-import 'custom_button.dart';
+import 'custom_button_bloc_consumer.dart';
 
 class PaymentMethodsBottomSheet extends StatefulWidget {
   const PaymentMethodsBottomSheet({super.key});
@@ -41,11 +40,10 @@ class _PaymentMethodsBottomSheetState extends State<PaymentMethodsBottomSheet> {
           const SizedBox(
             height: 32,
           ),
-         CustomButton(backgroundColor: Colors.green,
-             buttonName: 'Pay',
-             onPressed: (){}),
+         const CustomButtonBlocConsumer(),
         ],
       ),
     );
   }
 }
+

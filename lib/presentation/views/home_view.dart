@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:paymentapp/data/repos/check_out_repo_imp.dart';
 import 'package:paymentapp/presentation/views/widgets/custom_button.dart';
 import 'package:paymentapp/presentation/views/widgets/details_text.dart';
 import 'package:paymentapp/presentation/views/widgets/payment_methods_bottom_sheet.dart';
+
+import '../../core/utils/stripe_service.dart';
+import '../cubits/payment/check_out_cubit.dart';
 
 
 class MyCartView extends StatelessWidget {
@@ -46,7 +51,13 @@ class MyCartView extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16)),
                           builder: (context) {
-                            return const PaymentMethodsBottomSheet();
+                            return BlocProvider(
+                                create: (context) => CheckOutCubit(
+                                CheckOutRepoImp(
+                                 StripeService(),
+                                ),
+                                ),
+                                child: const PaymentMethodsBottomSheet());
 
                           });
                     }

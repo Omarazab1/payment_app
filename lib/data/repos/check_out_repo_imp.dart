@@ -10,7 +10,7 @@ import 'check_out_repo.dart';
 class CheckOutRepoImp  extends CheckOutRepo{
   final StripeService stripeService;
 
-  CheckOutRepoImp({required this.stripeService});
+  CheckOutRepoImp(this.stripeService);
   @override
   Future<Either<Failure, void>> makePayment({required PaymentIntentInputModel paymentIntentInputModel}) async{ {
     try {
